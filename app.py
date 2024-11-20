@@ -29,8 +29,9 @@ def preprocess_image(image):
     # image = io.imread(image_path)
 
     # Resize the image to 32x32
-    image_resized = translate_image(image)
-
+    # image_resized = translate_image(image)
+    image_resized = cv2.resize(image, (32, 32), interpolation=cv2.INTER_AREA)
+    
     # Convert the image to grayscale
     image_gray = np.sum(image_resized / 3, axis=2, keepdims=True)
 
